@@ -7,7 +7,7 @@ function generateSequence() {
     return sequence;
 }
 
-const sequence = generateSequence();
+let sequence = generateSequence();
 let currentIndex = 0;
 
 const rocks = document.querySelectorAll('.rock');
@@ -19,16 +19,25 @@ rocks.forEach(rock => {
             this.classList.add('correct');
             currentIndex++;
         } else {
-            if (rockId <= sequence[currentIndex]) this.classList.add('incorrect')
-            setTimeout(() => resetRocks(), 1000)
+            this.classList.add('incorrect');
+            setTimeout(() => resetRocks(false), 500); 
         }
     });
 });
 
-function resetRocks() {
+document.addEventListener('keydown', function(event) {
+    if (event.key.toLowerCase() === 'r') {
+        resetRocks(true);
+    }
+});
+
+function resetRocks(generateNewSequence) {
     rocks.forEach(rock => {
         rock.classList.remove('correct');
         rock.classList.remove('incorrect');
     });
     currentIndex = 0;
+    if (generateNewSequence) {
+        sequence = generateSequence();
+    }
 }
