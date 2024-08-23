@@ -20,7 +20,7 @@ rocks.forEach(rock => {
             this.classList.add('correct');
             currentIndex++;
         } else {
-            this.classList.add('incorrect')
+            if (rockId <= sequence[currentIndex]) this.classList.add('incorrect')
             setTimeout(() => resetRocks(), 1000)
         }
     });
