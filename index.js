@@ -19,13 +19,9 @@ rocks.forEach(rock => {
         if (rockId === sequence[currentIndex]) {
             this.classList.add('correct');
             currentIndex++;
-
-            if (currentIndex === sequence.length) {
-                alert("Sucesso! Um barulho alto ecoa pela biblioteca e as estantes em frente a vocês se abrem, e então ele aparece.");
-            }
         } else {
-            alert('A magia balança pelos seus corpos, vocês serão punidos')
-            resetRocks();
+            this.classList.add('incorrect')
+            setTimeout(() => resetRocks(), 1000)
         }
     });
 });
@@ -33,6 +29,7 @@ rocks.forEach(rock => {
 function resetRocks() {
     rocks.forEach(rock => {
         rock.classList.remove('correct');
+        rock.classList.remove('incorrect');
     });
     currentIndex = 0;
 }
