@@ -15,7 +15,6 @@ const rocks = document.querySelectorAll('.rock');
 rocks.forEach(rock => {
     rock.addEventListener('click', function () {
         const rockId = parseInt(this.id);
-
         if (rockId === sequence[currentIndex]) {
             this.classList.add('correct');
             currentIndex++;
