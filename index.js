@@ -21,9 +21,10 @@ rocks.forEach(rock => {
             currentIndex++;
 
             if (currentIndex === sequence.length) {
-                alert("Vocês ganharam!");
+                alert("Sucesso! Um barulho alto ecoa pela biblioteca e as estantes em frente a vocês se abrem, e então ele aparece.");
             }
         } else {
+            alert('A magia balança pelos seus corpos, vocês serão punidos')
             resetRocks();
         }
     });
